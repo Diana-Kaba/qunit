@@ -1,0 +1,25 @@
+{
+  "devDependencies": {
+    "qunit": "^2.19.4"
+  },
+  "name": "qunit-test",
+  "version": "1.0.0",
+  "main": "add.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "globalyzer": "^0.1.0",
+    "commander": "^7.2.0",
+    "globrex": "^0.1.2",
+    "node-watch": "^0.7.3",
+    "tiny-glob": "^0.2.9"
+  },
+  "scripts": {
+    "test": "qunit"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

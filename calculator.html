@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+
+    <div id="calculator">
+        <input type="text" id="num1" value="">
+        <select id="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <input type="text" id="num2" value="">
+        <button id="calculate">Calculate</button>
+        <p id="result"></p>
+    </div>
+
+    <script src="./node_modules/qunit/qunit/qunit.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        QUnit.test("Addition", function (assert) {
+            assert.equal(add(2, 3), 5, "2 + 3 = 5");
+            assert.equal(add(-2, 3), 1, "-2 + 3 = 1");
+        });
+
+        QUnit.test("Subtraction", function (assert) {
+            assert.equal(subtract(5, 3), 2, "5 - 3 = 2");
+            assert.equal(subtract(-2, 3), -5, "-2 - 3 = -5");
+        });
+
+        QUnit.test("Multiplication", function (assert) {
+            assert.equal(multiply(2, 3), 6, "2 * 3 = 6");
+            assert.equal(multiply(-2, 3), -6, "-2 * 3 = -6");
+        });
+
+        QUnit.test("Division", function (assert) {
+            assert.equal(divide(6, 3), 2, "6 / 3 = 2");
+            assert.equal(divide(-6, 3), -2, "-6 / 3 = -2");
+        });
+
+        function add(a, b) {
+            return a + b;
+        }
+
+        function subtract(a, b) {
+            return a - b;
+        }
+
+        function multiply(a, b) {
+            return a * b;
+        }
+
+        function divide(a, b) {
+            return a / b;
+        }
+
+        QUnit.test("Calculator", function (assert) {
+            $("#num1").val("2");
+            $("#operator").val("+");
+            $("#num2").val("3");
+            $("#calculate").click();
+            assert.equal($("#result").text(), "5", "2 + 3 = 5");
+
+            $("#num1").val("-2");
+            $("#operator").val("-");
+            $("#num2").val("3");
+            $("#calculate").click();
+            assert.equal($("#result").text(), "-5", "-2 - 3 = -5");
+
+            $("#num1").val("2");
+            $("#operator").val("*");
+            $("#num2").val("3");
+            $("#calculate").click();
+            assert.equal($("#result").text(), "6", "2 * 3 = 6");
+
+            $("#num1").val("-6");
+            $("#operator").val("/");
+            $("#num2").val("3");
+            $("#calculate").click();
+            assert.equal($("#result").text(), "-2", "-6 / 3 = -2");
+        });
+    </script>
+
+</body>
+
+</html>
